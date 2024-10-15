@@ -16,20 +16,20 @@
   },
   "pages": [
     {
-      "path": "pages/index/index",
-      "type": "home",
-      "style": {
-        "navigationStyle": "custom",
-        "navigationBarTitleText": "首页"
-      }
-    },
-    {
-      "path": "pages/file/preview",
+      "path": "pages/land/index",
       "type": "home",
       "layout": "default",
       "style": {
         "navigationStyle": "custom",
-        "navigationBarTitleText": "pdf预览"
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/audit/index",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": ""
       }
     },
     {
@@ -39,6 +39,22 @@
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "政策文件"
+      }
+    },
+    {
+      "path": "pages/file/preview",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "预览"
+      }
+    },
+    {
+      "path": "pages/land/details",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "出让用地列表详情"
       }
     },
     {
@@ -71,22 +87,28 @@
     "spacing": "3px",
     "list": [
       {
+        "pagePath": "pages/land/index",
+        "iconPath": "static/tabbar/land_tab1.png",
+        "selectedIconPath": "static/tabbar/land_tab.png",
+        "text": "出让用地列表"
+      },
+      {
+        "pagePath": "pages/audit/index",
+        "iconPath": "static/audit_tab1.png",
+        "selectedIconPath": "static/audit_tab.png",
+        "text": "不动产审核"
+      },
+      {
         "pagePath": "pages/project/index",
         "iconPath": "static/tabbar/project_tab1.png",
         "selectedIconPath": "static/tabbar/project_tab.png",
-        "text": "项目公示"
-      },
-      {
-        "pagePath": "pages/file/index",
-        "iconPath": "static/tabbar/file_tab1.png",
-        "selectedIconPath": "static/tabbar/file_tab.png",
-        "text": "政策文件"
+        "text": "项目列表"
       },
       {
         "pagePath": "pages/map/index",
         "iconPath": "static/tabbar/chart_tab1.png",
         "selectedIconPath": "static/tabbar/chart_tab.png",
-        "text": "一张图"
+        "text": "地图"
       }
     ]
   },

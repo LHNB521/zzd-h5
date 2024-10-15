@@ -17,7 +17,7 @@ defineProps({
     default: true,
   },
   data: {
-    default: '',
+    default: [],
   },
 })
 </script>

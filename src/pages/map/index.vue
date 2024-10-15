@@ -9,11 +9,7 @@
 </route>
 
 <template>
-  <view
-    class="bg-white overflow-hidden content"
-    :style="{ marginTop: safeAreaInsets?.top + 'px' }"
-    id="map"
-  ></view>
+  <view class="bg-white overflow-hidden content" id="map"></view>
 
   <!-- 地图操作 -->
   <view class="operation">
@@ -21,14 +17,14 @@
     <img class="xmzxc" src="/static/images/reduce.png" @click="setZoom(-1)" />
     <img class="xmzxc" src="/static/images/add.png" @click="setZoom(1)" />
   </view>
-  <wd-popup v-model="show" position="left" custom-style="width: 250px;" closable="true">
+  <wd-popup v-model="show" position="left" custom-style="width: 250px;" :closable="true">
     <view class="drawer-title">
       <text>图层列表</text>
     </view>
     <LayerListVue />
   </wd-popup>
 
-  <wd-popup v-model="showBottom" position="bottom" closable="true">
+  <wd-popup v-model="showBottom" position="bottom" :closable="true">
     <view class="popup-content">
       <view class="popup-title">
         <text>地块信息</text>

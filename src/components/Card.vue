@@ -1,12 +1,15 @@
 <template>
   <wd-card
-    custom-class="card"
     custom-content-class="card-content"
     custom-title-class="card-title"
     custom-footer-class="card-footer"
-    v-bind="$attrs"
   >
+    <template #title>
+      <slot name="title"></slot>
+    </template>
+
     <slot></slot>
+
     <template #footer>
       <slot name="footer"></slot>
     </template>
@@ -22,6 +25,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+:deep(.wd-card) {
+  padding: 10px !important;
+}
 :deep(.card-title) {
   padding: 0px !important;
 }
@@ -30,6 +36,5 @@ export default {
 }
 :deep(.card-footer) {
   padding: 0px !important;
-  padding-bottom: 10px !important;
 }
 </style>

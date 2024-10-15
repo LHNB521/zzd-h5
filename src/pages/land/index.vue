@@ -1,9 +1,9 @@
-<route lang="json5" type="page">
+<route lang="json5" type="home">
 {
   layout: 'default',
   style: {
     navigationStyle: 'custom',
-    navigationBarTitleText: '政策文件',
+    navigationBarTitleText: '',
   },
 }
 </route>
@@ -19,14 +19,21 @@
       hide-cancel
     />
     <scroll-view class="list" :scroll-y="true" @scrolltolower="handelLower">
-      <!-- <uni-load-more :status="status" v-if="status === 'loading'" /> -->
       <CardVue class="cardVue" v-for="item in list" :key="item.id">
+        <template #title>
+          <view class="title">
+            <text class="title-text">{{ item.xmmc }}</text>
+          </view>
+        </template>
         <view class="card_content">
-          {{ item.title }}
+          {{ item.dkh }}
         </view>
         <template #footer>
           <view class="footer">
-            <text class="time">{{ item.date.split(' ')[0] }}</text>
+            <view class="footer-left">
+              <image style="width: 11px; height: 14px" src="/static/images/card_icon.png"></image>
+              <text class="time">{{ item.sqzt }}</text>
+            </view>
             <wd-button class="button" plain :round="false" @click="handleLook(item)">
               查看
             </wd-button>
@@ -37,25 +44,26 @@
   </view>
 </template>
 
-<script lang="ts" setup>
-import { getInfoList } from '@/service/index/foo'
+<script lang="ts" setup name="Land">
 import { debounce } from '@/utils/common/index'
 import CardVue from '@/components/Card.vue'
-// import { useAppStore } from '@/store'
+import { landTransferInfo } from '@/service'
 
-// const appStore = useAppStore()
-// 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
-// const renderHeight = ref<string>(appStore.renderHeight + 'px') // 设备屏幕高度
-const FileURL = import.meta.env.VITE_FILE_API_BASEURL
 
 const searchValue = ref()
-const queryForm = reactive({ pageNum: 1, pageSize: 10, typeId: 4, title: '' })
-const status = ref<any>('loading')
+const queryForm = ref({
+  sqzt: '',
+  param: '',
+  pageNum: 1,
+  pageSize: 10,
+  isAsc: 'desc',
+})
+
 const list = ref([])
 const total = ref(0)
 const inputHandle = () => {
-  queryForm.title = searchValue.value
+  queryForm.value.param = searchValue.value
   getList()
 }
 
@@ -64,34 +72,33 @@ const debounceInput = debounce(inputHandle, 500, false)
 
 // 获取数据列表
 async function getList() {
-  status.value = 'loading'
   try {
-    const res: any = await getInfoList(queryForm)
-    if (res) {
-      list.value = res.rows
-      total.value = res.total
-    }
-    status.value = 'more'
+    // const res: any = await landTransferInfo(queryForm.value)
+    // list.value = res.rows
+    list.value = [
+      {
+        id: 1,
+        xmmc: '的就是看了就打算看了看就打死了',
+        dkh: '的就是看了就打算看了看就打死了的就是看了就打算看了看就打死了',
+        sqzt: 'sqzths',
+      },
+    ]
+    // total.value = res.total
   } catch (e) {
-    status.value = 'more'
+    console.log(e)
   }
 }
 
 // 点击查看
-function handleLook(item: string) {
-  let url: string
-  if (process.env.NODE_ENV === 'development') {
-    url = FileURL + item.url
-  } else {
-    url = window.location.origin + FileURL + item.url
-  }
+function handleLook(item: any) {
+  const json = JSON.stringify(item)
   uni.navigateTo({
-    url: '../file/preview?url=' + encodeURIComponent(JSON.stringify(url)),
+    url: `../land/details?item=${json}`,
   })
 }
 // 触底加载
 const handelLower = () => {
-  queryForm.pageSize += 10
+  queryForm.value.pageSize += 10
   getList()
 }
 onMounted(() => {
@@ -124,6 +131,21 @@ onMounted(() => {
 }
 .cardVue {
   position: relative;
+  padding: 10px !important;
+
+  .title {
+    display: flex;
+    gap: 5px;
+    align-items: centpx;
+
+    .title-text {
+      max-width: 80%;
+      font-family: Source Han Sans CN;
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(0, 82, 217, 1);
+    }
+  }
   .card_content {
     font-family: Alibaba PuHuiTi;
     font-size: 16px;

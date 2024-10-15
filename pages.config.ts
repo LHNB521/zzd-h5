@@ -19,19 +19,9 @@ export default defineUniPages({
   },
   pages: [
     {
-      path: 'pages/index/index',
-      type: 'home',
+      path: 'pages/land/details',
       style: {
-        navigationStyle: 'custom',
-        navigationBarTitleText: '首页',
-      },
-    },
-    {
-      path: 'pages/file/preview',
-      type: 'home',
-      style: {
-        navigationStyle: 'custom',
-        navigationBarTitleText: 'pdf预览',
+        navigationBarTitleText: '出让用地列表详情',
       },
     },
   ],
@@ -51,23 +41,33 @@ export default defineUniPages({
     list: [
       {
         // 页面路径，必须在 pages 中先定义
+        pagePath: 'pages/land/index',
+        // 图片路径
+        iconPath: 'static/tabbar/land_tab1.png',
+        // 选中时的图片路径
+        selectedIconPath: 'static/tabbar/land_tab.png',
+        // tab 上按钮文字
+        text: '出让用地列表',
+      },
+      {
+        // 页面路径，必须在 pages 中先定义
+        pagePath: 'pages/audit/index',
+        // 图片路径
+        iconPath: 'static/audit_tab1.png',
+        // 选中时的图片路径
+        selectedIconPath: 'static/audit_tab.png',
+        // tab 上按钮文字
+        text: '不动产审核',
+      },
+      {
+        // 页面路径，必须在 pages 中先定义
         pagePath: 'pages/project/index',
         // 图片路径
         iconPath: 'static/tabbar/project_tab1.png',
         // 选中时的图片路径
         selectedIconPath: 'static/tabbar/project_tab.png',
         // tab 上按钮文字
-        text: '项目公示',
-      },
-      {
-        // 页面路径，必须在 pages 中先定义
-        pagePath: 'pages/file/index',
-        // 图片路径
-        iconPath: 'static/tabbar/file_tab1.png',
-        // 选中时的图片路径
-        selectedIconPath: 'static/tabbar/file_tab.png',
-        // tab 上按钮文字
-        text: '政策文件',
+        text: '项目列表',
       },
       {
         // 页面路径，必须在 pages 中先定义
@@ -77,7 +77,7 @@ export default defineUniPages({
         // 选中时的图片路径
         selectedIconPath: 'static/tabbar/chart_tab.png',
         // tab 上按钮文字
-        text: '一张图',
+        text: '地图',
       },
     ],
   },
