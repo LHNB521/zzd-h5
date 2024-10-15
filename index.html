@@ -1,0 +1,58 @@
+<!doctype html>
+<html build-time="%BUILD_TIME%">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
+    <script>
+      var coverSupport =
+        'CSS' in window &&
+        typeof CSS.supports === 'function' &&
+        (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+      document.write(
+        '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+          (coverSupport ? ', viewport-fit=cover' : '') +
+          '" />',
+      )
+    </script>
+    <title>南浔测绘一件事</title>
+    <!-- <script
+      type="text/javascript"
+      src="https://assets.zjzwfw.gov.cn/assets/ZWJSBridge/1.1.0/zwjsbridge.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://assets.zjzwfw.gov.cn/assets/zwlog/1.0.0/zwlog.js"
+    ></script> -->
+    <!--preload-links-->
+    <!--app-context-->
+  </head>
+
+  <body>
+    <!-- <script>
+    // 在声明Zwlog对象实例时，可以传入一些app或者用户信息
+    const zwlog = new ZwLog({
+      _user_id: '用户ID',
+      _user_nick: '用户昵称',
+    })
+    //onReady表示zwlog加载完成后的函数，它接收一个匿名函数，而sendPV与record方法均要在匿名函数内调用。eg:
+    zwlog.onReady(function () {
+      //PV日志
+      zwlog.sendPV({
+        miniAppId: 'IRS服务侧应用appid',
+        Page_duration: '用户从进入到离开当前页面的时长',
+        t2: '页面启动到加载完成的时间',
+        t0: '页面启动到页面响应完成的时间',
+        log_status: 'IRS服务侧应用appid',
+      })
+      //令箭日志
+      zwlog.record('yourTrackerEventCode', 'CLK', {
+        Test1: '测试参数1',
+      })
+      let { metaInfo } = zwlog // SDK元配置的当前设置
+      console.log(metaInfo)
+    })
+  </script> -->
+    <div id="app"><!--app-html--></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

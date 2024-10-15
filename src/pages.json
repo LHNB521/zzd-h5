@@ -1,0 +1,94 @@
+{
+  "globalStyle": {
+    "navigationStyle": "default",
+    "navigationBarTitleText": "高景",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "transparentTitle": "auto"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue",
+      "^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)": "z-paging/components/z-paging$1/z-paging$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "type": "home",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/file/preview",
+      "type": "home",
+      "layout": "default",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "pdf预览"
+      }
+    },
+    {
+      "path": "pages/file/index",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "政策文件"
+      }
+    },
+    {
+      "path": "pages/map/index",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/project/index",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "项目公示"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#191F2599",
+    "selectedColor": "#0085FF",
+    "borderStyle": "#191F251F",
+    "backgroundColor": "#ffffff",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "24px",
+    "spacing": "3px",
+    "list": [
+      {
+        "pagePath": "pages/project/index",
+        "iconPath": "static/tabbar/project_tab1.png",
+        "selectedIconPath": "static/tabbar/project_tab.png",
+        "text": "项目公示"
+      },
+      {
+        "pagePath": "pages/file/index",
+        "iconPath": "static/tabbar/file_tab1.png",
+        "selectedIconPath": "static/tabbar/file_tab.png",
+        "text": "政策文件"
+      },
+      {
+        "pagePath": "pages/map/index",
+        "iconPath": "static/tabbar/chart_tab1.png",
+        "selectedIconPath": "static/tabbar/chart_tab.png",
+        "text": "一张图"
+      }
+    ]
+  },
+  "subPackages": []
+}
